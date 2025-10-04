@@ -2,92 +2,48 @@
 
 ```mermaid
 flowchart TD
-  %% Pool: Fukusuke Sushi-Delivery
   subgraph Fukusuke_Sushi_Delivery
     direction TB
-    lane_Gerencia["Lane: Gerencia/Jefe de Proyecto"]
-    lane_Analista["Lane: Analista de Métricas/PMO"]
-    lane_TI["Lane: Equipo TI (Visión por Computadora)"]
-    lane_Logistica["Lane: Operación Logística (Despachadores)"]
+    Gerencia_Inicio("Inicio del ciclo de Medición y Análisis")
+    Definir_Obj("Definir objetivos y métricas")
+    Recolectar_Datos("Recolectar datos: OCR, despacho, encuestas")
+    Analizar_Datos("Analizar e interpretar datos")
+    Decidir_Mejora{"¿Hay oportunidades de mejora?"}
+    Accion_Mejora("Planificar y ejecutar acciones de mejora")
+    Comunicar("Comunicar hallazgos y resultados")
+    Actualizar_Repo("Actualizar repositorio de métricas")
+    Cierre_Ciclo("Cierre de ciclo e integración TRP")
+    Fin_Ciclo("Fin del ciclo / Loop al próximo periodo")
 
-    %% Fases del proceso
-    A1(Inicio del ciclo de Medición y Análisis)
-    A2[Definir objetivos y métricas]
-    A3[Recolectar datos (OCR, Despacho, Encuestas)]
-    A4[Analizar e interpretar datos]
-    A5{¿Desvíos u oportunidades de mejora?}
-    A6[Planificar y ejecutar acciones de mejora]
-    A7[Comunicar hallazgos y resultados]
-    A8[Actualizar repositorio de métricas]
-    A9(Cierre de ciclo e integración TRP)
-    A10(Fin del ciclo / Loop al próximo periodo)
-
-    %% Artefactos
-    D1[(Repositorio Métricas)]
-    D2[(Reporte Medición/Análisis)]
-    D3[(Encuestas Satisfacción)]
-    D4[(Sistema OCR)]
-    D5[(Módulo Despacho)]
-    D6[(Plan de Acción)]
-
-    %% Flujos internos
-    lane_Gerencia --> A1
-    A1 --> A2
-    A2 --> D1
-    A2 --> lane_Analista
-    lane_Analista --> A3
-    A3 --> D4
-    A3 --> D5
-    A3 --> D3
-    A3 --> lane_TI
-    lane_TI --> A4
-    lane_Analista --> A4
-    A4 --> D2
-    A4 --> A5
-    A5 -->|Sí| A6
-    A5 -->|No| A7
-    A6 --> D6
-    A6 --> lane_Logistica
-    lane_Logistica --> A7
-    A7 --> D2
-    A7 --> D1
-    A7 --> A8
-    A8 --> D1
-    A8 --> A9
-    A9 --> D1
-    A9 --> A10
-    A10 --> A1
-
+    Gerencia_Inicio --> Definir_Obj
+    Definir_Obj --> Recolectar_Datos
+    Recolectar_Datos --> Analizar_Datos
+    Analizar_Datos --> Decidir_Mejora
+    Decidir_Mejora -- Sí --> Accion_Mejora
+    Decidir_Mejora -- No --> Comunicar
+    Accion_Mejora --> Comunicar
+    Comunicar --> Actualizar_Repo
+    Actualizar_Repo --> Cierre_Ciclo
+    Cierre_Ciclo --> Fin_Ciclo
+    Fin_Ciclo --> Gerencia_Inicio
   end
 
-  %% Pool externo: Cliente
   subgraph Cliente_App_Web
     direction TB
-    C1(Recibe encuesta de satisfacción)
-    C2(Envia respuestas / Reclamos)
+    Recibe_Encuesta("Recibe encuesta de satisfacción")
+    Responde_Encuesta("Responde encuesta / Reclamos")
   end
 
-  %% Mensajes entre pools
-  D3 -.-> C1
-  C2 -.-> lane_Analista
+  Recolectar_Datos -.-> Recibe_Encuesta
+  Recibe_Encuesta -.-> Responde_Encuesta
+  Responde_Encuesta -.-> Analizar_Datos
 
-  %% Notas
-  note over A2,A3
-    Fase 1: Definir objetivos y métricas
-    Incluye: Tiempo de entrega, precisión OCR, satisfacción cliente (escala 1-10)
-  end
+  %% Artefactos y almacenes pueden representarse con anotaciones
+  Definir_Obj -- "Define métricas: tiempo, precisión, satisfacción" --> Recolectar_Datos
+  Actualizar_Repo -- "Repositorio de métricas actualizado" --> Cierre_Ciclo
 
-  note over A4,A5
-    Fase 2: Análisis e interpretación de datos
-    Frecuencia: Mensual
-  end
-
-  note over A6
-    Fase 3: Implementar acciones de mejora si hay desvíos
-  end
-
-  note over A7,A8,A9,A10
-    Fase 4: Comunicación, actualización y cierre de ciclo
-    Integración con otros procesos TRP
-  end
+  %% Notas explicativas
+  classDef pool fill:#f9f,stroke:#333,stroke-width:2px;
+  class Fukusuke_Sushi_Delivery pool;
+  class Cliente_App_Web pool;
 ```
