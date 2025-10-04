@@ -2,10 +2,10 @@
 
 ```mermaid
 flowchart TD
-    A("Inicio: Proceso de mejora continua en el Delivery Sushi")
-    B("Definir propósito del proceso de medición y mejora")
-    C("Especificar objetivos de mejora")
-    D("Establecer métricas relacionadas (tiempo de entrega, precisión, satisfacción)")
+    A("Inicio: Proceso de mejora continua del delivery sushi")
+    B("Propósito: Elevar eficiencia, seguridad y satisfacción del delivery mediante medición sistemática y acciones de mejora continua.")
+    C("Objetivos de mejora:\n- Reducir en 10% el tiempo total de entrega\n- Mantener o mejorar la precisión de detección de placas (>95%)\n- Aumentar el índice de satisfacción del cliente (>Z en escala 1-10)")
+    D("Métricas:\n- Tiempo real vs planificado de entrega\n- % de placas correctamente detectadas\n- Encuestas de satisfacción de clientes\n- Derivadas: confiabilidad OCR, variación vs objetivo")
     E("Recolectar datos operativos y de clientes")
     F("Analizar e interpretar resultados")
     G{"¿Se necesitan acciones de mejora?"}
@@ -29,7 +29,7 @@ flowchart TD
     K --> L
     L --> A
 
-    %% Flujos externos (cliente)
+    %% Flujo externo (cliente)
     E -.-> M("Enviar encuestas de satisfacción a clientes")
     M -.-> E
 ```
