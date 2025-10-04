@@ -71,3 +71,53 @@ flowchart TD
     classDef role fill:#fff,stroke:#333,stroke-width:2px;
     class TI,Logistica,Cliente role;
 ```
+
+
+# Diagrama 3
+
+```mermaid
+flowchart TD
+    %% Inicio: Datos en repositorio
+    A("Datos en Repositorio central de métricas")
+
+    %% Análisis de métricas
+    B("Analizar precisión de detección de placas (OCR)")
+    C("Analizar tiempos de entrega vs planificado")
+    D("Analizar resultados de encuestas de satisfacción")
+    E("Comparar métricas con objetivos establecidos")
+    F("Identificar desviaciones y tendencias (gráficos, reportes)")
+
+    %% Interpretación y comunicación
+    G("Interpretar resultados y posibles causas")
+    H("Generar reporte de análisis mensual")
+    I("Comunicar hallazgos a gerencia y equipo TI")
+
+    %% Decisión y acciones posteriores
+    J{"¿Se requieren acciones correctivas?"}
+    K("Definir plan de acción con responsables")
+    L("Registrar hallazgos y acciones en repositorio histórico")
+
+    %% Flujo principal
+    A --> B
+    A --> C
+    A --> D
+    B --> E
+    C --> E
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J -- Sí --> K
+    J -- No --> L
+    K --> L
+
+    %% Artefactos y eventos
+    H -.-> M("Reporte de análisis mensual")
+    F -.-> N("Gráficos de tendencias, tablas comparativas")
+    L -.-> O("Actualización de repositorio histórico de métricas")
+
+    %% Reunión de seguimiento
+    I -.-> P("Reunión de avance con gerencia y equipo TI")
+```
