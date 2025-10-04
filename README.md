@@ -48,7 +48,7 @@ flowchart TD
     %% Fuentes de datos
     A("Registro de placas detectadas (OCR)")
     B("Registro de tiempos de despacho")
-    C("Envía encuesta de satisfacción al cliente")
+    C("Encuesta de satisfacción al cliente")
     D("Cliente responde encuesta en app web")
     E("Compilar resultados de encuestas")
     F("Almacenar datos en repositorio central de métricas")
