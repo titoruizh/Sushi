@@ -1,4 +1,4 @@
-# Sushi
+# Avengers: Mejora del Sushi
 
 # Diagrama 1
 
