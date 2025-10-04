@@ -1,5 +1,7 @@
 # Sushi
 
+# Diagrama 1
+
 ```mermaid
 flowchart TD
     A("Inicio: Proceso de mejora continua del delivery sushi")
@@ -32,4 +34,40 @@ flowchart TD
     %% Flujo externo (cliente)
     E -.-> M("Enviar encuestas de satisfacción a clientes")
     M -.-> E
+```
+
+# Diagrama 2
+
+```mermaid
+flowchart TD
+    %% Roles
+    TI("Equipo TI: Administra OCR y sistemas")
+    Logistica("Operación Logística: Despachadores")
+    Cliente("Cliente (App Web)")
+
+    %% Fuentes de datos
+    A("Registro de placas detectadas (OCR)")
+    B("Registro de tiempos de despacho")
+    C("Envía encuesta de satisfacción al cliente")
+    D("Cliente responde encuesta en app web")
+    E("Compilar resultados de encuestas")
+    F("Almacenar datos en repositorio central de métricas")
+
+    %% Flujo interno
+    TI --> A
+    Logistica --> B
+    TI --> C
+    C --> Cliente
+    Cliente --> D
+    D --> E
+    A --> F
+    B --> F
+    E --> F
+
+    %% Opcional: Repositorio
+    F("Repositorio central de métricas")
+
+    %% Notas y artefactos
+    classDef role fill:#fff,stroke:#333,stroke-width:2px;
+    class TI,Logistica,Cliente role;
 ```
